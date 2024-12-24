@@ -1,8 +1,9 @@
 name: safesecurelibs
-description: "A new Flutter project."
-# The following line prevents the package from being accidentally published to
-# pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'https://pub.dev' # Package is now enabled for publishing
+description: "A Flutter package for checking device security status including root detection, developer mode, and dangerous apps."
+homepage: https://github.com/bagusandrewijaya/safesecurelibs
+repository: https://github.com/bagusandrewijaya/safesecurelibs.git
+
+
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -16,7 +17,7 @@ publish_to: 'https://pub.dev' # Package is now enabled for publishing
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+1
+version: 1.0.0+2
 
 environment:
   sdk: ^3.5.4
@@ -88,3 +89,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+platforms:
+  android:

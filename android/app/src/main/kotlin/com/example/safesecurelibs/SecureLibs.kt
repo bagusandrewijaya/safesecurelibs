@@ -83,7 +83,7 @@ class SafeSecureLib(private val context: Context) {
     private fun checkDangerousApps(): Boolean {
         val dangerousPackages = arrayOf(
             "com.topjohnwu.magisk",
-            "com.thirdparty.superuser",
+            "com.thirdparty.superuser", 
             "eu.chainfire.supersu",
             "com.noshufou.android.su",
             "com.koushikdutta.superuser",
@@ -96,7 +96,22 @@ class SafeSecureLib(private val context: Context) {
             "com.devadvance.rootcloak",
             "com.devadvance.rootcloakplus",
             "com.android.vending.billing.InAppBillingService.COIN",
-            "com.chelpus.lackypatch"
+            "com.chelpus.lackypatch",
+            "com.kingroot.kinguser",
+            "com.kingo.root",
+            "com.smedialink.oneclickroot",
+            "com.zhiqupk.root.global",
+            "com.alephzain.framaroot",
+            "com.koushikdutta.rommanager",
+            "com.dimonvideo.luckypatcher",
+            "com.chelpus.luckypatcher",
+            "com.yellowes.su",
+            "com.koushikdutta.superuser",
+            "com.thirdparty.superuser",
+            "com.bitcnew.blockchain",
+            "com.noshufou.android.su.elite",
+            "com.jrummy.root.browserfree",
+            "com.jrummy.busybox.installer"
         )
 
         return try {
