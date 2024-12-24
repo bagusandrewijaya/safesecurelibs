@@ -1,8 +1,5 @@
 name: safesecurelibs
 description: "A Flutter package for checking device security status including root detection, developer mode, and dangerous apps."
-homepage: https://github.com/bagusandrewijaya/safesecurelibs
-repository: https://github.com/bagusandrewijaya/safesecurelibs.git
-
 
 
 # The following defines the version and build number for your application.
@@ -17,10 +14,10 @@ repository: https://github.com/bagusandrewijaya/safesecurelibs.git
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+2
+version: 1.0.0+3
 
 environment:
-  sdk: ^3.5.4
+  sdk: ^2.19.4
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -31,7 +28,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
