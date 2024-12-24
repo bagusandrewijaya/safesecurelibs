@@ -1,6 +1,6 @@
 # SafeSecureLibs
 # Start Generation Here
-<img src="https://raw.githubusercontent.com/bagusandrewijaya/safesecurelibs/refs/heads/main/asset/png.jpg" alt="SafeSecureLibs Banner" width="1000" height="600" />
+<img src="https://raw.githubusercontent.com/bagusandrewijaya/safesecurelibs/refs/heads/main/asset/png.jpg" alt="SafeSecureLibs Banner" width="1000" height="400" />
 
 A Flutter package for checking device security status including root detection, developer mode, and dangerous apps detection on Android devices.
 
