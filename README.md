@@ -1,6 +1,6 @@
 # SafeSecureLibs
 # Start Generation Here
-<img src="https://raw.githubusercontent.com/bagusandrewijaya/safesecurelibs/refs/heads/main/asset/png.jpg" alt="SafeSecureLibs Banner" width="300" height="150" />
+<img src="https://raw.githubusercontent.com/bagusandrewijaya/safesecurelibs/refs/heads/main/asset/png.jpg" alt="SafeSecureLibs Banner" width="1000" height="600" />
 
 A Flutter package for checking device security status including root detection, developer mode, and dangerous apps detection on Android devices.
 
@@ -10,6 +10,44 @@ A Flutter package for checking device security status including root detection, 
 - Root Access Detection: Detect if the device is rooted
 - Magisk Detection: Identify Magisk root management installation
 - Dangerous Apps Detection: Detect potentially harmful apps installed on the device
+
+
+### Packet Detection
+The following packets are detected during the security checks:
+
+- **Superuser Apps**: 
+  - `com.topjohnwu.magisk`
+  - `com.thirdparty.superuser`
+  - `eu.chainfire.supersu`
+  - `com.noshufou.android.su`
+  - `com.koushikdutta.superuser`
+  - `com.zachspong.temprootremovejb`
+  - `com.ramdroid.appquarantine`
+  - `com.formyhm.hideroot`
+  - `com.amphoras.hidemyroot`
+  - `com.saurik.substrate`
+  - `de.robv.android.xposed`
+  - `com.devadvance.rootcloak`
+  - `com.devadvance.rootcloakplus`
+  - `com.android.vending.billing.InAppBillingService.COIN`
+  - `com.chelpus.lackypatch`
+  - `com.kingroot.kinguser`
+  - `com.kingo.root`
+  - `com.smedialink.oneclickroot`
+  - `com.zhiqupk.root.global`
+  - `com.alephzain.framaroot`
+  - `com.koushikdutta.rommanager`
+  - `com.dimonvideo.luckypatcher`
+  - `com.chelpus.luckypatcher`
+  - `com.yellowes.su`
+  - `com.koushikdutta.superuser`
+  - `com.thirdparty.superuser`
+  - `com.bitcnew.blockchain`
+  - `com.noshufou.android.su.elite`
+  - `com.jrummy.root.browserfree`
+  - `com.jrummy.busybox.installer`
+
+These packets are commonly associated with rooting and may indicate potential security vulnerabilities on the device.
 
 ## Installation
 
@@ -77,6 +115,7 @@ class _SecurityCheckPageState extends State {
 | Android | iOS |
 |:-------:|:---:|
 |    ✅    |  ❌  |
+
 
 ## Configuration
 
