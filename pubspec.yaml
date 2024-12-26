@@ -5,23 +5,20 @@ version: 2.1.2+3
 
 environment:
   sdk: ">=2.19.4 <3.0.0"
-  flutter: ">=1.10.0"
+  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
-  change_app_package_name: ^1.4.0
 
 flutter:
   plugin:
     platforms:
       android:
         package: com.flutter.libsec.securesafelibs
-        pluginClass: SafeSecureLib  # This should match your plugin class name exactly
-  uses-material-design: true
+        pluginClass: SafeSecureLibPlugin # Ubah nama class
