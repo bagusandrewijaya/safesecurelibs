@@ -32,7 +32,7 @@ Here's a complete example of how to implement the security checks in your Flutte
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:safesecurelibs/checkermethode.dart';
+import 'package:safesecurelibs/safesecurelibs.dart';
 
 void main() {
   runApp(const MyApp());
@@ -46,29 +46,26 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Security Check Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Security Check'),
+      home: const SecurityCheckPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
+class SecurityCheckPage extends StatefulWidget {
+  const SecurityCheckPage({super.key});
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<SecurityCheckPage> createState() => _SecurityCheckPageState();
 }
-
-class _MyHomePageState extends State<MyHomePage> {
-  Map<String, bool> _securityStatus = {
+class _SecurityCheckPageState extends State<SecurityCheckPage> {
+  Map<String, dynamic> _securityStatus = {
     'isDevModeEnabled': false,
     'isRooted': false,
     'isMagiskDetected': false,
-    'hasDangerousApps': false
+    'hasDangerousApps': false,
+    'isSecure': true,
+    'deviceInfo': {}
   };
 
   @override
@@ -86,6 +83,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final deviceInfo = _securityStatus['deviceInfo'] as Map<dynamic, dynamic>? ?? {};
+    
     return Scaffold(
       appBar: AppBar(
         title: const Text('Security Check'),
@@ -109,6 +108,28 @@ class _MyHomePageState extends State<MyHomePage> {
             'Dangerous Apps',
             _securityStatus['hasDangerousApps'] ?? false,
           ),
+          _buildSecurityItem(
+            'Device Security',
+            _securityStatus['isSecure'] ?? true,
+          ),
+          const SizedBox(height: 20),
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Device Information',
+                      style: Theme.of(context).textTheme.titleLarge),
+                  const SizedBox(height: 8),
+                  Text('Model: ${deviceInfo['model']}'),
+                  Text('Brand: ${deviceInfo['brand']}'),
+                  Text('Android Version: ${deviceInfo['version']}'),
+                  Text('SDK: ${deviceInfo['sdkInt']}'),
+                ],
+              ),
+            ),
+          ),
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: _checkSecurity,
@@ -118,6 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+}
 
   Widget _buildSecurityItem(String title, bool isDetected) {
     return Card(
@@ -137,7 +159,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}
 ```
 
 ## Security Checks Details
@@ -194,6 +215,24 @@ com.noshufou.android.su.elite
 com.jrummy.root.browserfree
 com.jrummy.busybox.installer
 ```
+The following path are detected:
+```
+"/sbin/magisk",
+"/system/xbin/magisk",
+"/system/bin/magisk",
+"/data/adb/magisk",
+"/data/data/com.topjohnwu.magisk",
+"/system/app/Superuser.apk",
+"/sbin/su",
+"/system/bin/su",
+"/system/xbin/su",
+"/data/local/xbin/su",
+"/data/local/bin/su",
+"/system/sd/xbin/su",
+"/system/bin/failsafe/su",
+"/data/local/su",
+"/su/bin/su"
+```
 
 ## Platform Support
 
@@ -201,6 +240,8 @@ com.jrummy.busybox.installer
 |----------|---------|
 | Android  | ✅      |
 | iOS      | ❌      |
+| Linux    | ❌      |
+| Windows  | ❌      |
 
 ## Configuration
 
@@ -208,4 +249,4 @@ com.jrummy.busybox.installer
 No additional configuration required. The package automatically handles all necessary Android-specific implementations.
 
 ### iOS
-iOS support is currently not available.
+iOS support is currently not available....
