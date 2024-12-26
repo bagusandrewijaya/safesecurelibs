@@ -1,3 +1,15 @@
+## 1.0.0+9
+
+* Add plugin plaforms android 
+* Fixed the issue with the previous version
+
+## 1.0.0+8
+
+* Add method channel to communicate with Flutter
+* Fixed the issue with the previous version
+
+
+
 ## 1.0.0+7
 
 * Update version cupertino_icons to 1.0.2

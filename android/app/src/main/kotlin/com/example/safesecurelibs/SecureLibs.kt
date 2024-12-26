@@ -1,15 +1,33 @@
 package com.example.safesecurelibs
 
-
 import android.content.Context
 import android.content.pm.PackageManager
 import android.provider.Settings
 import android.util.Log
 import java.io.File
+import io.flutter.embedding.engine.plugins.FlutterPlugin
+import io.flutter.plugin.common.MethodCall
+import io.flutter.plugin.common.MethodChannel
 
-class SafeSecureLib(private val context: Context) {
+class SafeSecureLib(private val context: Context) : FlutterPlugin {
     companion object {
         private const val TAG = "SafeSecureLib"
+        private const val CHANNEL = "safesecurelibs"
+    }
+
+    private lateinit var channel: MethodChannel
+
+    override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+        channel = MethodChannel(binding.binaryMessenger, CHANNEL)
+        channel.setMethodCallHandler { call, result ->
+            when (call.method) {
+                "checkSecurityStatus" -> result.success(checkSecurityStatus())
+                "isDevModeEnabled" -> result.success(isDevModeEnabled())
+                "isDeviceRooted" -> result.success(isDeviceRooted())
+                // Add other method calls as needed
+                else -> result.notImplemented()
+            }
+        }
     }
 
     fun checkSecurityStatus(): Map<String, Boolean> {
@@ -128,5 +146,9 @@ class SafeSecureLib(private val context: Context) {
             Log.e(TAG, "Error checking dangerous apps", e)
             false
         }
+    }
+
+    override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+        // Clean up if necessary
     }
 }
