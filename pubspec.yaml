@@ -1,7 +1,7 @@
 name: safesecurelibs
 description: "A Flutter package for checking device security status, including root detection, developer mode, and dangerous apps."
 
-version: 2.1.2+3
+version: 2.1.2+4
 
 environment:
   sdk: ">=2.19.4 <3.0.0"
