@@ -1,4 +1,8 @@
-## 1.0.0+9
+## 2.1.1+0
+
+* change prefix name to safesecurelibs
+
+## 2.1.0+0
 
 * Add plugin plaforms android 
 * Fixed the issue with the previous version

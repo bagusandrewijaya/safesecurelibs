@@ -1,4 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+   package="com.flutter.libsec.securesafelibs">
+>
     <application
         android:label="safesecurelibs"
         android:name="${applicationName}"

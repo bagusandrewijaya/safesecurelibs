@@ -22,17 +22,17 @@ class MyApp extends StatelessWidget {
 
 class SecurityCheckPage extends StatefulWidget {
   const SecurityCheckPage({super.key});
-
   @override
   State<SecurityCheckPage> createState() => _SecurityCheckPageState();
 }
-
 class _SecurityCheckPageState extends State<SecurityCheckPage> {
-  Map<String, bool> _securityStatus = {
+  Map<String, dynamic> _securityStatus = {
     'isDevModeEnabled': false,
     'isRooted': false,
     'isMagiskDetected': false,
-    'hasDangerousApps': false
+    'hasDangerousApps': false,
+    'isSecure': true,
+    'deviceInfo': {}
   };
 
   @override
@@ -50,6 +50,8 @@ class _SecurityCheckPageState extends State<SecurityCheckPage> {
 
   @override
   Widget build(BuildContext context) {
+    final deviceInfo = _securityStatus['deviceInfo'] as Map<dynamic, dynamic>? ?? {};
+    
     return Scaffold(
       appBar: AppBar(
         title: const Text('Security Check'),
@@ -73,6 +75,28 @@ class _SecurityCheckPageState extends State<SecurityCheckPage> {
             'Dangerous Apps',
             _securityStatus['hasDangerousApps'] ?? false,
           ),
+          _buildSecurityItem(
+            'Device Security',
+            _securityStatus['isSecure'] ?? true,
+          ),
+          const SizedBox(height: 20),
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Device Information',
+                      style: Theme.of(context).textTheme.titleLarge),
+                  const SizedBox(height: 8),
+                  Text('Model: ${deviceInfo['model']}'),
+                  Text('Brand: ${deviceInfo['brand']}'),
+                  Text('Android Version: ${deviceInfo['version']}'),
+                  Text('SDK: ${deviceInfo['sdkInt']}'),
+                ],
+              ),
+            ),
+          ),
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: _checkSecurity,
@@ -82,6 +106,7 @@ class _SecurityCheckPageState extends State<SecurityCheckPage> {
       ),
     );
   }
+}
 
   Widget _buildSecurityItem(String title, bool isDetected) {
     return Card(
@@ -101,4 +126,4 @@ class _SecurityCheckPageState extends State<SecurityCheckPage> {
       ),
     );
   }
-}
+
