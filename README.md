@@ -17,7 +17,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  safe_secure_libs: ^1.0.0
+  safe_secure_libs: ^latest
 ```
 
 Then run:
@@ -161,7 +161,35 @@ class _SecurityCheckPageState extends State<SecurityCheckPage> {
   }
 ```
 
+## Platform Support
+
+| Platform | Support |
+|----------|---------|
+| Android  | ✅      |
+| iOS      | ❌      |
+| Linux    | ❌      |
+| Windows  | ❌      |
+
 ## Security Checks Details
+| Security Check    | Status |
+|------------------|---------|
+| Developer Mode   | ✅      |
+| Root Access      | ✅      |
+| Magisk Root      | ✅      |
+| Dangerous Apps   | ✅      |
+| Overall Security | ✅      |
+
+### Device Information
+| Property         | Value |
+|-----------------|--------|
+| Manufacturer    | ✅     |
+| Brand           | ✅     |
+| Model           | ✅     |
+| Device          | ✅     |
+| Product         | ✅     |
+| Android Version | ✅     |
+| SDK Level       | ✅     |
+| Fingerprint     | ✅     |
 
 ### Developer Mode Detection
 Checks if developer options are enabled in the device settings. This can indicate potential security risks as developer options may enable USB debugging and other sensitive features.
@@ -234,14 +262,6 @@ The following path are detected:
 "/su/bin/su"
 ```
 
-## Platform Support
-
-| Platform | Support |
-|----------|---------|
-| Android  | ✅      |
-| iOS      | ❌      |
-| Linux    | ❌      |
-| Windows  | ❌      |
 
 ## Configuration
 
